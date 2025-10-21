@@ -1,0 +1,81 @@
+/* リセットCSS - ブラウザ間の表示差を減らす */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; /* 日本語に合うフォント設定 */
+    line-height: 1.6;
+    background-color: #f0f2f5; /* 薄いグレーの背景色 */
+    color: #333; /* 文字色 */
+}
+
+/* 共通スタイル */
+main {
+    width: 90%; 
+    max-width: 800px; /* PCでの見やすさのために最大幅を設定 */
+    margin: 20px auto; 
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 立体的な影 */
+}
+
+h2 {
+    border-bottom: 2px solid #5c6bc0; /* メインカラーの線 */
+    padding-bottom: 5px;
+    margin-top: 0;
+    color: #3f51b5;
+}
+
+h3 {
+    color: #5c6bc0;
+}
+
+section, article {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+/* ヘッダー */
+header {
+    background-color: #3f51b5; /* 青系のメインカラー */
+    color: white;
+    padding: 15px 20px;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+/* ナビゲーション */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex; 
+    justify-content: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    display: block;
+    transition: background-color 0.3s; /* ホバーで色を滑らかに変える */
+}
+
+nav ul li a:hover {
+    background-color: #5c6bc0;
+    border-radius: 4px;
+}
+
+/* フッター */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
