@@ -1,0 +1,85 @@
+:root {
+    /* 碁盤のサイズを定義 */
+    --board-size: 15;
+    --cell-size: 30px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上部に寄せる */
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+    padding-top: 20px;
+}
+
+#game-container {
+    text-align: center;
+}
+
+#board {
+    display: grid;
+    /* CSS Gridで15x15のグリッドを作成 */
+    grid-template-columns: repeat(var(--board-size), var(--cell-size));
+    grid-template-rows: repeat(var(--board-size), var(--cell-size));
+    border: 1px solid #333;
+    background-color: #e0b484; /* 碁盤の色 */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid #333; /* 線の表現 */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent; /* マス目の背景を透明に */
+    position: relative;
+    /* 角の線が二重になるのを防ぐために、隣接するセルの境界線を調整するテクニック */
+    margin: -1px;
+    z-index: 1; /* 石より下に */
+}
+
+/* 石の共通スタイル */
+.cell::after {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0); /* 初期状態では石を見せない */
+    transition: transform 0.1s;
+    z-index: 2; /* 石を線より上に */
+}
+
+/* 黒石 */
+.cell.black::after {
+    background-color: black;
+    transform: scale(1);
+}
+
+/* 白石 */
+.cell.white::after {
+    background-color: white;
+    border: 1px solid #333;
+    transform: scale(1);
+}
+
+#status {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#reset-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
